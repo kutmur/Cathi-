@@ -1,0 +1,10 @@
+[package]
+name = "donation_dao"
+version = "0.0.1"
+published-at = "0x0"
+
+[dependencies]
+Sui = { local = "/home/halil/.move/https___github_com_MystenLabs_sui_git_mainnet-v1.47.0/crates/sui-framework/packages/sui-framework" }
+
+[addresses]
+donation_dao = "0x0"
