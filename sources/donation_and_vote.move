@@ -117,6 +117,11 @@ module donation_dao::donation_and_vote {
         }
     }
 
+    /// Shares a proposal object
+    public fun share_proposal(proposal: Proposal) {
+        transfer::share_object(proposal);
+    }
+
     /// Votes on a proposal
     public fun vote(
         proposal: &mut Proposal, 

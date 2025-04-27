@@ -1,8 +1,7 @@
 module donation_dao::admin_actions {
 
     use donation_dao::donation_and_vote;
-    use sui::tx_context::{Self, TxContext};
-    use sui::transfer;
+    use sui::tx_context::TxContext;
 
     /// Creates two initial proposals for the DAO
     /// This function is intended for admin use only during initialization
@@ -13,8 +12,8 @@ module donation_dao::admin_actions {
         // Create second proposal - "Support TEMA Vakfı"
         let proposal2 = donation_and_vote::create_proposal(b"Support TEMA Vakfi", ctx);
         
-        // Share the proposals as shared objects
-        transfer::share_object(proposal1);
-        transfer::share_object(proposal2);
+        // Return the proposals so they can be properly shared within the donation_and_vote module
+        donation_and_vote::share_proposal(proposal1);
+        donation_and_vote::share_proposal(proposal2);
     }
 }
