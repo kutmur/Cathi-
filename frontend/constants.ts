@@ -4,7 +4,7 @@
 export const NETWORK = 'devnet';
 
 // Package ID for the donation module (update with your deployed package ID)
-export const PACKAGE_ID = '0xbe336cfda15b7655467db977db0d47892d4bb2fcd83c43453c2ae2acd9855da9';
+export const PACKAGE_ID = '0x11d77ac0b6890c0c6aaae573c913b85a09898eb7d421e430de8e74e5e10dcab6';
 
 // Treasury ID (update with your deployed treasury object ID)
 export const TREASURY_ID = '0x5ce28668f7172dc0d544a274f57a41682ae86b0833329c6d2ae0a922d0a60468';

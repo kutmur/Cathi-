@@ -69,37 +69,14 @@ export const DonationForm: React.FC<DonationFormProps> = ({
     setIsLoading(true);
 
     try {
-      // Convert SUI amount to MIST (1 SUI = 10^9 MIST)
-      const amountInMist = BigInt(Math.floor(parseFloat(amount) * 10**9));
-      
       // Create a new transaction block
       const tx = new TransactionBlock();
       
-      // Get the gas object first
-      const gas = tx.gas;
-      
       // Split coins from the user's wallet with proper BigInt
-      const [coin] = tx.splitCoins(gas, [amountInMist]);
+      const [coin] = tx.splitCoins(tx.gas, [BigInt(MINIMUM_DONATION_AMOUNT)]);
       
-      // Call the donate function from our Move module
-      tx.moveCall({
-        target: `${PACKAGE_ID}::donation_and_vote::donate`,
-        arguments: [
-          tx.object(TREASURY_ID),
-          coin
-        ],
-      });
-      
-      // Create a voter object for the user if they don't already have one
-      if (!hasVoterObject) {
-        const voter = tx.moveCall({
-          target: `${PACKAGE_ID}::donation_and_vote::create_voter`,
-          arguments: [],
-        });
-        
-        // Transfer the voter object to the sender
-        tx.transferObjects([voter], tx.pure(currentAccount.address));
-      }
+      // Transfer the coin to the treasury address
+      tx.transferObjects([coin], tx.pure(TREASURY_ID));
 
       // Sign and execute the transaction
       const response = await signAndExecuteTransactionBlock({
