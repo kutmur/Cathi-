@@ -1,7 +1,5 @@
 # Cathi DAO
 
-![Cathi Logo](frontend/public/cathi-logo.png)
-
 ## Overview
 Cathi DAO is a decentralized donation and governance platform built on the Sui blockchain. Users can connect their Sui wallet, donate SUI tokens, and participate in governance proposals. The platform features a live 7-day countdown timer for campaign or voting windows.
 
@@ -50,11 +48,6 @@ No custom environment variables are required for devnet usage. For mainnet/testn
 - The Cathi logo is displayed in the top-left of the header and links to the homepage.
 - Primary color: `#2f6c8f` (used for buttons, headings)
 - Secondary color: `#4e6a8a` (used for text accents)
-
-## Screenshot
-![Homepage Screenshot](frontend/public/screenshot-homepage.png)
-
-> Replace the above with an actual screenshot after running the app.
 
 ## Footer
 ```
