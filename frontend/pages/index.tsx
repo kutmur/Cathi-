@@ -20,7 +20,7 @@ const DonationDaoClient = dynamic(
 
 const Home: NextPage = () => {
   return (
-    <main className="min-h-screen bg-white py-6">
+    <main className="min-h-screen bg-white py-6 flex flex-col">
       <DonationDaoClient />
     </main>
   );
