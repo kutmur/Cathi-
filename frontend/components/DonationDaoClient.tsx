@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useCurrentAccount, useCurrentWallet, ConnectButton } from '@mysten/dapp-kit';
 import { DonationForm } from './DonationForm';
-import { ProposalsList } from './ProposalsList';
+import ProposalsList from './ProposalsList';
 import { useWalletBalance } from './BlockchainUtils';
 import { formatAddress } from '../constants';
-import { useToast } from '@/components/ui/ToastNotification';
+import { useToast } from './ui/ToastNotification';
 import ClientOnly from './ClientOnly';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -40,7 +40,7 @@ function CountdownTimer() {
   );
 }
 
-export const DonationDaoClient = () => {
+const DonationDaoClient = () => {
   const [walletBalance, setWalletBalance] = useState<string>("0");
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const currentAccount = useCurrentAccount();
@@ -149,3 +149,5 @@ export const DonationDaoClient = () => {
     </div>
   );
 };
+
+export default DonationDaoClient;

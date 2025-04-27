@@ -4,7 +4,7 @@ import { createNetworkConfig, SuiClientProvider, WalletProvider } from '@mysten/
 import { getFullnodeUrl } from '@mysten/sui.js/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { NETWORK } from '../constants';
-import { ToastProvider } from '@/components/ui/ToastNotification';
+import { ToastProvider } from './ui/ToastNotification';
 
 // Create a React Query client
 const queryClient = new QueryClient({

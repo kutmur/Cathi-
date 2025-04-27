@@ -10,5 +10,11 @@
     "files": [
       "static/chunks/components_DonationDaoClient_tsx.js"
     ]
+  },
+  "index.tsx -> ../components/ProposalsList": {
+    "id": "index.tsx -> ../components/ProposalsList",
+    "files": [
+      "static/chunks/components_ProposalsList_tsx.js"
+    ]
   }
 }

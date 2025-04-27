@@ -70,13 +70,16 @@ export const DonationForm: React.FC<DonationFormProps> = ({
 
     try {
       // Convert SUI amount to MIST (1 SUI = 10^9 MIST)
-      const amountInMist = Math.floor(parseFloat(amount) * 10**9);
+      const amountInMist = BigInt(Math.floor(parseFloat(amount) * 10**9));
       
       // Create a new transaction block
       const tx = new TransactionBlock();
       
-      // Split coins from the user's wallet
-      const [coin] = tx.splitCoins(tx.gas, [tx.pure(amountInMist)]);
+      // Get the gas object first
+      const gas = tx.gas;
+      
+      // Split coins from the user's wallet with proper BigInt
+      const [coin] = tx.splitCoins(gas, [amountInMist]);
       
       // Call the donate function from our Move module
       tx.moveCall({
@@ -100,7 +103,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
 
       // Sign and execute the transaction
       const response = await signAndExecuteTransactionBlock({
-        transaction: tx as any
+        transaction: tx.serialize()
       });
 
       if (response && response.digest) {
@@ -111,7 +114,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
       }
     } catch (error: any) {
       console.error("Donation error:", error);
-      showToast('error', `Donation failed: ${error.message}`);
+      showToast('error', `Transaction failed: ${error.message || "Unknown error"}`);
     } finally {
       setIsLoading(false);
     }
