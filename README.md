@@ -45,9 +45,9 @@ No custom environment variables are required for devnet usage. For mainnet/testn
 - The timer updates every second and cleans up on unmount.
 
 ## Logo & Branding
-- The Cathi logo is displayed in the top-left of the header and links to the homepage.
-- Primary color: `#2f6c8f` (used for buttons, headings)
-- Secondary color: `#4e6a8a` (used for text accents)
+- The Cathi logo is displayed in the top left of the header and links to the homepage.
+- Primary color: #2f6c8f (used for buttons, headings)
+- Secondary color: #4e6a8a (used for text accents)
 
 ## Footer
 ```
